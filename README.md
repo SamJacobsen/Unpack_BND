@@ -11,4 +11,4 @@ Created using JDK15
 # Usage
 Simply drag and drop supported files onto unpack.bat
 
-New directory will be created in original file path
+New directory will be created in original file path.
