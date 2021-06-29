@@ -19,13 +19,15 @@ public class PackedFileIterator implements Iterator<PackedFile> {
     @Override
     public PackedFile next() {
         PackedFile packedFile = this.filesMetaDataIterator.next();
-        try {
-            byte[] data = new byte[packedFile.getFileSize()];
-            randomAccessFile.seek(Long.valueOf(packedFile.getStartIndexInFile()));
-            randomAccessFile.readFully(data);
-            packedFile.setData(data);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(packedFile.getData() == null) {
+            try {
+                byte[] data = new byte[packedFile.getFileSize()];
+                randomAccessFile.seek(Long.valueOf(packedFile.getStartIndexInFile()));
+                randomAccessFile.readFully(data);
+                packedFile.setData(data);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return packedFile;
     }
