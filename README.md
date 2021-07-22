@@ -7,6 +7,8 @@ Formats: BND3, TPF, DCX
 # Compile
 Compile src to out\production\Unpack_BND_DDS
 
+Requires apache FilenameUtils package
+
 Created using JDK15
 # Usage
 Simply drag and drop supported files onto unpack.bat
